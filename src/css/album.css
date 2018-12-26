@@ -1,0 +1,36 @@
+.album {
+  display: flex;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  background-color: #fff;
+}
+.album .cover img {
+  width: 50px;
+}
+.album .cover {
+  padding-right: 0.5rem;
+}
+.album .info {
+  flex-grow: 1;
+}
+.album .lastFm {
+  align-self: center;
+  text-align: center;
+  min-width: 40px;
+  /* min-width: 60px; */
+}
+.lastFm .listeners {
+  font-size: 0.8rem;
+}
+.album .title {
+  font-size: 0.8rem;
+}
+.album .genre {
+  font-size: 0.8rem;
+}
+.album .hot {
+  /* color: red; */
+}
