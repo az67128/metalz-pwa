@@ -12,6 +12,11 @@ class Store {
   @observable date = new Date();
   @observable isModalOpen = false;
   @observable openAlbum;
+  @observable sortByRating = false;
+  @action
+  toggleSort = () => {
+    this.sortByRating = !this.sortByRating;
+  };
   @action
   toggleModal = (album = null) => {
     if (album !== null) {
@@ -57,13 +62,21 @@ class Store {
 
   @computed
   get getAlbums() {
+    let albums = [];
     if (this.onlyHot) {
-      return this.albums.filter(item => {
+      albums = this.albums.filter(item => {
         return item.isHot;
       });
     } else {
-      return this.albums;
+      albums = this.albums;
     }
+    return this.sortByRating
+      ? albums.sort((cutItem, nextItem) => {
+          const a = cutItem.listeners || 0;
+          const b = nextItem.listeners || 0;
+          return b - a;
+        })
+      : albums;
   }
   @computed
   get getMonthName() {

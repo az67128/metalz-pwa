@@ -28,6 +28,11 @@ class BottomPanel extends React.Component {
             <div>{store.getMonthName}</div>
             <div>{store.getYear}</div>
           </div>
+          <div className="sort">
+            <div onClick={store.toggleSort}>
+              {store.sortByRating ? "321" : "A-Z"}
+            </div>
+          </div>
           <div>
             <NextIcon
               onClick={() => {

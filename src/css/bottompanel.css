@@ -19,3 +19,9 @@
 .bottom-panel svg {
   cursor: pointer;
 }
+.bottom-panel .sort {
+  align-self: center;
+  cursor: pointer;
+  width: 30px;
+}
+
