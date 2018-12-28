@@ -79,7 +79,6 @@ class Store {
     this.loadAlbums();
   }
 }
-
 class Album {
   @observable author;
   @observable cover;

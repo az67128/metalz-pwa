@@ -14,10 +14,17 @@
 .modal .cover {
   text-align: center;
 }
-.modal .cover img {
-  width: 100%;
-}
 
+@media screen and (max-width: 600px) {
+  .modal .cover img {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .modal .cover img {
+    width: 400px;
+  }
+}
 .modal .arrow {
   align-self: center;
   padding: 0.5rem;

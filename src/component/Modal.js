@@ -9,13 +9,14 @@ import YandexIcon from "./icon/YandexIcon";
 import CloseIcon from "./icon/CloseIcon";
 class Modal extends React.Component {
   render() {
+    const color = window.innerWidth > 600 ? "black" : "white";
     const { store } = this.props;
     const album = store.openAlbum;
     return store.isModalOpen ? (
       <div className="modal">
         <div className="content">
           <div className="arrow">
-            <CloseIcon onClick={() => store.toggleModal(null)} />
+            <CloseIcon onClick={() => store.toggleModal(null)} color={color} />
           </div>
 
           <div className="cover">

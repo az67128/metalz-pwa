@@ -1,6 +1,7 @@
 import React from "react";
 export default function CloseIcon(props) {
-  const { onClick } = props;
+  const { onClick, color } = props;
+
   return (
     <svg
       onClick={onClick}
@@ -17,7 +18,7 @@ export default function CloseIcon(props) {
 		c-0.781,0.781-2.047,0.781-2.828,0c-0.781-0.781-0.781-2.047,0-2.828l7.778-7.778l-7.425-7.425c-0.781-0.781-0.781-2.048,0-2.828
 		c0.781-0.781,2.047-0.781,2.828,0l7.425,7.425l7.071-7.071c0.781-0.781,2.047-0.781,2.828,0c0.781,0.781,0.781,2.047,0,2.828
 		l-7.071,7.071l7.425,7.425C37.022,34.194,37.022,35.46,36.241,36.241z"
-          fill="#FFFFFF"
+          fill={color ? color : "#FFFFFF"}
         />
       </g>
     </svg>
