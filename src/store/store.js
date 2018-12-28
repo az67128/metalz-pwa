@@ -42,7 +42,7 @@ class Store {
         this.albums.push(new Album(album));
       });
       if (!result.isFinal) {
-        //this.loadAlbums(++page);
+        this.loadAlbums(++page);
       } else {
         this.isLoading = false;
       }
