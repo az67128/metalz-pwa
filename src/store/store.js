@@ -1,5 +1,10 @@
 import { observable, action, computed } from "mobx";
-import { getMonthAlbum, getLastFm, getGooglePlayLink } from "../helper/main";
+import {
+  getMonthAlbum,
+  getLastFm,
+  getGooglePlayLink,
+  getYandexMusicLink
+} from "../helper/main";
 class Store {
   @observable albums;
   @observable isLoading = true;
@@ -12,6 +17,7 @@ class Store {
     if (album !== null) {
       this.openAlbum = album;
       album.getGMLink();
+      album.getYMLink();
     }
     this.isModalOpen = !this.isModalOpen;
   };
@@ -82,6 +88,8 @@ class Album {
   @observable playcount;
   @observable GMLink;
   @observable isGMLoaded = false;
+  @observable YMLink;
+  @observable isYMLoaded = false;
   constructor(album) {
     this.author = album.author;
     this.cover = album.cover;
@@ -108,6 +116,13 @@ class Album {
     getGooglePlayLink(this.author, this.title).then(link => {
       this.GMLink = link;
       this.isGMLoaded = true;
+    });
+  };
+  @action
+  getYMLink = () => {
+    getYandexMusicLink(this.author, this.title).then(link => {
+      this.YMLink = link;
+      this.isYMLoaded = true;
     });
   };
   @action

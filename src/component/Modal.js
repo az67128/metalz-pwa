@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import HeavyMetalIcon from "./icon/HeavyMetalIcon";
 import PlayIcon from "./icon/PlayIcon";
 import GooglePlayIcon from "./icon/GooglePlayIcon";
+import YandexIcon from "./icon/YandexIcon";
 import CloseIcon from "./icon/CloseIcon";
 class Modal extends React.Component {
   render() {
@@ -54,7 +55,24 @@ class Modal extends React.Component {
               )}
 
               {album.isGMLoaded && !album.GMLink && (
-                <div className="not-available">No link</div>
+                <div className="not-available">No Google link</div>
+              )}
+            </div>
+            <div>
+              {!album.isYMLoaded && <Loader size="30" />}
+              {album.isYMLoaded && album.YMLink && (
+                <div>
+                  <div>
+                    <a href={album.YMLink} target="_blank">
+                      <YandexIcon />
+                    </a>
+                  </div>
+                  <div>play</div>
+                </div>
+              )}
+
+              {album.isYMLoaded && !album.YMLink && (
+                <div className="not-available">No Yandex link</div>
               )}
             </div>
           </div>

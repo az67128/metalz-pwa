@@ -1,5 +1,5 @@
 import React from "react";
-export default function FireIcon(props) {
+export default function GooglePlayIcon(props) {
   return (
     <svg x="0px" y="0px" viewBox="0 0 512 512" width="30px" height="30px">
       <polygon

@@ -1,5 +1,5 @@
 import React from "react";
-export default function FireIcon(props) {
+export default function GuitarIcon(props) {
   const { color } = props;
   return (
     <svg

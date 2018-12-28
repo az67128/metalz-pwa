@@ -1,5 +1,5 @@
 import React from "react";
-export default function FireIcon(props) {
+export default function PlayIcon(props) {
   return (
     <svg x="0px" y="0px" viewBox="0 0 512 512" width="30px" height="30px">
       <path d="m362 241.984375c5.519531 0 10-4.480469 10-10 0-5.523437-4.480469-10-10-10s-10 4.476563-10 10c0 5.519531 4.480469 10 10 10zm0 0" />

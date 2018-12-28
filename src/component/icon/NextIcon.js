@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-class FireIcon extends React.Component {
+class NextIcon extends React.Component {
   render() {
     const { flip, onClick } = this.props;
     return (
@@ -24,4 +24,4 @@ class FireIcon extends React.Component {
     );
   }
 }
-export default observer(FireIcon);
+export default observer(NextIcon);

@@ -1,20 +1,46 @@
 import request from "superagent";
-export function getGooglePlayLink(author, album) {
+export function getYandexMusicLink(author, album) {
   return request
     .get(
-      `https://cors-anywhere.herokuapp.com/https://play.google.com/store/search?q=${author}%20${album}`
+      `https://cors-anywhere.herokuapp.com/https://music.yandex.ru/search?text=${encodeURIComponent(
+        author
+      )}%20${encodeURIComponent(album)}`
     )
     .then(res => {
       const content = document.createElement("div");
       content.innerHTML = res.text;
-      const albumLink = content.querySelector(".card-content .title");
-      if (albumLink.title === album) {
+      const albumLink = content.querySelector(".album__caption");
+      if (albumLink && albumLink.innerText === album) {
+        return "https://music.yandex.ru/album/" + albumLink.href.split("/")[4];
+      } else {
+        return null;
+      }
+    })
+    .catch(err => {
+      return null;
+    });
+}
+export function getGooglePlayLink(author, album) {
+  return request
+    .get(
+      `https://cors-anywhere.herokuapp.com/https://play.google.com/store/search?q=${encodeURIComponent(
+        author
+      )}%20${encodeURIComponent(album)}`
+    )
+    .then(res => {
+      const content = document.createElement("div");
+      content.innerHTML = res.text;
+      const albumLink = content.querySelector(".square-cover.music .title");
+      if (albumLink && albumLink.title === album) {
         return `https://play.google.com/music/m/${
           albumLink.href.split("=")[1]
         }?t=`;
       } else {
         return null;
       }
+    })
+    .catch(err => {
+      return null;
     });
 }
 export function getLastFm(author, album) {
