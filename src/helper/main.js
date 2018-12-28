@@ -1,4 +1,22 @@
 import request from "superagent";
+export function getGooglePlayLink(author, album) {
+  return request
+    .get(
+      `https://cors-anywhere.herokuapp.com/https://play.google.com/store/search?q=${author}%20${album}`
+    )
+    .then(res => {
+      const content = document.createElement("div");
+      content.innerHTML = res.text;
+      const albumLink = content.querySelector(".card-content .title");
+      if (albumLink.title === album) {
+        return `https://play.google.com/music/m/${
+          albumLink.href.split("=")[1]
+        }?t=`;
+      } else {
+        return null;
+      }
+    });
+}
 export function getLastFm(author, album) {
   return request
     .get(

@@ -1,13 +1,14 @@
 import React from "react";
 import "../css/loader.css";
-export default function Loader() {
+export default function Loader(props) {
+  const size = props.size || 50;
   return (
     <div className="loader">
       <svg
         x="0px"
         y="0px"
-        width="50px"
-        height="50px"
+        width={size + "px"}
+        height={size + "px"}
         viewBox="0 0 482.032 482.032"
       >
         <g>

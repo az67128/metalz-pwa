@@ -1,8 +1,8 @@
 import React from "react";
 import "../css/bottompanel.css";
-import FireIcon from "./FireIcon";
-import GuitarIcon from "./GuitarIcon";
-import NextIcon from "./NextIcon";
+import FireIcon from "./icon/FireIcon";
+
+import NextIcon from "./icon/NextIcon";
 import { observer, inject } from "mobx-react";
 class BottomPanel extends React.Component {
   render() {

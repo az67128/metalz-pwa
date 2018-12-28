@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import FireIcon from "./FireIcon";
+import FireIcon from "./icon/FireIcon";
 class LastFm extends React.Component {
   render() {
     const { album } = this.props;

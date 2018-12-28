@@ -1,10 +1,20 @@
 import { observable, action, computed } from "mobx";
-import { getMonthAlbum, getLastFm } from "../helper/main";
+import { getMonthAlbum, getLastFm, getGooglePlayLink } from "../helper/main";
 class Store {
   @observable albums;
   @observable isLoading = true;
   @observable onlyHot = false;
   @observable date = new Date();
+  @observable isModalOpen = false;
+  @observable openAlbum;
+  @action
+  toggleModal = (album = null) => {
+    if (album !== null) {
+      this.openAlbum = album;
+      album.getGMLink();
+    }
+    this.isModalOpen = !this.isModalOpen;
+  };
   @action
   setMonth = delta => {
     this.date = new Date(this.date.setMonth(this.date.getMonth() + delta));
@@ -32,12 +42,13 @@ class Store {
         this.albums.push(new Album(album));
       });
       if (!result.isFinal) {
-        this.loadAlbums(++page);
+        //this.loadAlbums(++page);
       } else {
         this.isLoading = false;
       }
     });
   };
+
   @computed
   get getAlbums() {
     if (this.onlyHot) {
@@ -69,6 +80,8 @@ class Album {
   @observable genre;
   @observable listeners;
   @observable playcount;
+  @observable GMLink;
+  @observable isGMLoaded = false;
   constructor(album) {
     this.author = album.author;
     this.cover = album.cover;
@@ -90,6 +103,13 @@ class Album {
   get isHot() {
     return Number(this.playcount) > 500 || Number(this.listeners) > 50;
   }
+  @action
+  getGMLink = () => {
+    getGooglePlayLink(this.author, this.title).then(link => {
+      this.GMLink = link;
+      this.isGMLoaded = true;
+    });
+  };
   @action
   setLastFmData = lastFm => {
     if (lastFm.error) return;

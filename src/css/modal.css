@@ -1,0 +1,54 @@
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background: white;
+  overflow: scroll;
+}
+.modal .content {
+  overflow: scroll;
+}
+.modal .cover {
+  text-align: center;
+}
+.modal .cover img {
+  width: 100%;
+}
+
+.modal .arrow {
+  align-self: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+}
+.modal .author {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.modal .title {
+  font-size: 1rem;
+}
+
+.modal .info {
+  text-align: center;
+  padding: 0.5rem;
+}
+.modal .lastFM .not-available {
+  font-size: 0.8rem;
+  width: 30px;
+  align-self: center;
+}
+.modal .content .lastFM {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 0.5rem;
+}
+.modal .content .play {
+  display: flex;
+  justify-content: space-around;
+}

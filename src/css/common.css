@@ -7,4 +7,11 @@ body {
 }
 .content-container {
   padding-bottom: 50px;
+  height: 90vh;
+}
+.scroll {
+  overflow: scroll;
+}
+.no-scroll {
+  overflow: hidden;
 }

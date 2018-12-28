@@ -5,22 +5,14 @@ import LastFm from "./LastFm";
 
 class Album extends React.Component {
   render() {
-    const { album } = this.props;
+    const { album, onClick } = this.props;
     return (
-      <div className="album">
+      <div className="album" onClick={() => onClick(album)}>
         <div className="cover">
-          <a
-            href={`
-            https://play.google.com/store/search?q=${album.author}+${
-              album.title
-            }&c=music`}
-            target="_blank"
-          >
-            <img
-              src={"https://www.spirit-of-metal.com" + album.cover}
-              alt="cover"
-            />
-          </a>
+          <img
+            src={"https://www.spirit-of-metal.com" + album.cover}
+            alt="cover"
+          />
         </div>
         <div className="info">
           <div className="author">{album.author}</div>
