@@ -8,11 +8,21 @@ import {
 class Store {
   @observable albums;
   @observable isLoading = true;
-  @observable onlyHot = false;
+  @observable onlyHot = true;
   @observable date = new Date();
   @observable isModalOpen = false;
   @observable openAlbum;
-  @observable sortByRating = false;
+  @observable sortByRating = true;
+  @observable isGenreModalOpen = false;
+  @observable genreFilter = "";
+  @action
+  setGenreFilter = genre => {
+    this.genreFilter = genre;
+  };
+  @action
+  toggleGenreModal = () => {
+    this.isGenreModalOpen = !this.isGenreModalOpen;
+  };
   @action
   toggleSort = () => {
     this.sortByRating = !this.sortByRating;
@@ -69,6 +79,11 @@ class Store {
       });
     } else {
       albums = this.albums;
+    }
+    if (this.genreFilter) {
+      albums = albums.filter(item => {
+        return item.genre === this.genreFilter;
+      });
     }
     return this.sortByRating
       ? albums.sort((cutItem, nextItem) => {

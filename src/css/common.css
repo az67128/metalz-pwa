@@ -6,7 +6,7 @@ body {
   background: #eee;
 }
 .content-container {
-  padding-bottom: 50px;
+  padding: 50px 0;
   height: 90vh;
 }
 .scroll {
@@ -14,4 +14,9 @@ body {
 }
 .no-scroll {
   overflow: hidden;
+}
+.no-releases {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 0.5rem;
 }

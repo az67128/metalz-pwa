@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/bottompanel.css";
 import FireIcon from "./icon/FireIcon";
-
+import GuitarIcon from "./icon/GuitarIcon";
 import NextIcon from "./icon/NextIcon";
 import { observer, inject } from "mobx-react";
 class BottomPanel extends React.Component {
@@ -10,13 +10,10 @@ class BottomPanel extends React.Component {
     return (
       <div className="bottom-panel">
         <div className="panel-container">
-          <div>
-            <NextIcon
-              flip={true}
-              onClick={() => {
-                store.setMonth(-1);
-              }}
-            />
+          <div className="sort">
+            <div onClick={store.toggleSort}>
+              {store.sortByRating ? "321" : "A-Z"}
+            </div>
           </div>
           <div>
             <FireIcon
@@ -24,21 +21,9 @@ class BottomPanel extends React.Component {
               onClick={store.toggleHot}
             />
           </div>
-          <div className="date">
-            <div>{store.getMonthName}</div>
-            <div>{store.getYear}</div>
-          </div>
-          <div className="sort">
-            <div onClick={store.toggleSort}>
-              {store.sortByRating ? "321" : "A-Z"}
-            </div>
-          </div>
-          <div>
-            <NextIcon
-              onClick={() => {
-                store.setMonth(1);
-              }}
-            />
+
+          <div className="genre" onClick={store.toggleGenreModal}>
+            <GuitarIcon color={store.genreFilter ? "#9a0007" : "black"} />
           </div>
         </div>
       </div>

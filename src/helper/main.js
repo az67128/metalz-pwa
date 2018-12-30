@@ -81,7 +81,9 @@ export function getMonthAlbum(options = {}) {
             author: author,
             cover: item.querySelector("img").getAttribute("src"),
             title: album.nextSibling.textContent,
-            genre: album.nextSibling.nextSibling.nextSibling.textContent
+            genre: album.nextSibling.nextSibling.nextSibling
+              ? album.nextSibling.nextSibling.nextSibling.textContent
+              : ""
           };
         }
       );

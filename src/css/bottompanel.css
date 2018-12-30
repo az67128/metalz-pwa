@@ -6,14 +6,9 @@
   background: white;
   padding: 0.5rem 0;
 }
-.bottom-panel .date {
-  align-self: center;
-  font-size: 0.8rem;
-  text-align: center;
-}
 .bottom-panel .panel-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 0.5rem;
 }
 .bottom-panel svg {
@@ -24,4 +19,3 @@
   cursor: pointer;
   width: 30px;
 }
-
