@@ -1,0 +1,32 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #eeeeee;
+}
+.icon {
+  width: 1.5rem;
+  cursor: pointer;
+}
+.smallIcon {
+  width: 1rem;
+  cursor: pointer;
+}
+.iconButton {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+.flip {
+  transform: rotate(180deg);
+}
+.noScroll {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}

@@ -1,0 +1,26 @@
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(33, 33, 33, 0.9);
+
+  box-shadow: rgba(0, 0, 0, 0.09) 0 -6px 9px 0;
+  &__wrapper {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    fill: white;
+  }
+  & .sortButton {
+    width: 2rem;
+    color: white;
+    align-self: center;
+    font-size: 1.1rem;
+    font-weight: lighter;
+    cursor: pointer;
+  }
+  & .filter--active {
+    fill: red;
+  }
+}

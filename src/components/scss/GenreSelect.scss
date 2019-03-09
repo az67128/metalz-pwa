@@ -1,0 +1,38 @@
+.genreSelect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  overflow: scroll-y;
+  z-index: 2;
+  & .topBar {
+    z-index: 3;
+  }
+  & .resetButton {
+    align-self: center;
+    color: #b2102f;
+    border: 1px solid #b2102f;
+    padding: 0.2rem;
+    cursor: pointer;
+  }
+  & .title {
+    font-size: 1.2rem;
+  }
+  & .genre {
+    padding: 0.5rem;
+    cursor: pointer;
+    &:hover {
+      color: #b2102f;
+    }
+  }
+  & .genreList {
+    padding-bottom: 1rem;
+    overflow: scroll;
+    height: 100vh;
+    &__wrapper {
+      padding-top: 3.5rem;
+    }
+  }
+}
